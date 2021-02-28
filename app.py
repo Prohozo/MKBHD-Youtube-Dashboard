@@ -21,7 +21,7 @@ yt_channel = 'MKBHD'
 app.title = f'{yt_channel} channel dashboard'
 
 df = pd.read_csv('MKBHD_full.csv')
-
+df.sort_values(by='Date', inplace=True, na_position='first',axis=0)
 fig = px.line(df, x="Date", y='View',
               title='Total views by time', color_discrete_sequence=['#ED3342'], custom_data=['Title'])
 
@@ -165,7 +165,7 @@ app.layout = html.Div([
     html.Div([
         html.Div([
             html.H1(f'{yt_channel} Channel Dashboard', className='header_title',),
-            html.P('Updated 19/2/21', className='header_sub'),
+            html.P('Updated 16/2/21', className='header_sub'),
             html.Img(
                 src=app.get_asset_url('avatar.png'),
                 alt='Youtuber Avatar',
